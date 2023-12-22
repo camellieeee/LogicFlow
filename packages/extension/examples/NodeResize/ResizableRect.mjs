@@ -6,6 +6,7 @@ class ResizableRectModel extends RectResize.model {
     this.maxWidth = 400;
     this.maxHeight = 400;
     this.text.draggable = true;
+    this.gridSize = 25;
   }
   getNodeStyle() {
     const style = super.getNodeStyle();

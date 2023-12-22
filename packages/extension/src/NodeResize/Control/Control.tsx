@@ -35,18 +35,18 @@ class Control extends Component<IProps> {
     this.graphModel = props.graphModel;
     // 为保证对齐线功能正常使用，step默认是网格grid的两倍，
     // 没有网格设置，默认为2，保证坐标是整数
-    // let step = 2;
+    let step = 2;
     // if (gridSize > 1) {
     //   step = 2 * gridSize;
     // }
-    // if (this.nodeModel.gridSize) {
-    //   step = 2 * this.nodeModel.gridSize;
-    // }
+    if (this.nodeModel.gridSize) {
+      step = 2 * this.nodeModel.gridSize;
+    }
     this.state = {};
     this.dragHandler = new StepDrag({
       onDragging: this.onDragging,
       onDragEnd: this.onDragEnd,
-      step: 1,
+      step,
     });
   }
   getNodeEdges(nodeId) {
@@ -386,12 +386,12 @@ class Control extends Component<IProps> {
   onDragEnd = () => {
     // 先触发onDragging()->更新边->再触发用户自定义的getDefaultAnchor()，所以onDragging()拿到的anchors是滞后的
     // 为了正确设置最终的位置，应该在拖拽结束的时候，再设置一次边的Point位置，此时拿到的anchors是最新的
-    this.updateEdgePointByAnchors();
+    // this.updateEdgePointByAnchors();
 
-    const { gridSize = 1 } = this.graphModel;
-    const x = gridSize * Math.round(this.nodeModel.x / gridSize);
-    const y = gridSize * Math.round(this.nodeModel.y / gridSize);
-    this.nodeModel.moveTo(x, y);
+    // const { gridSize = 1 } = this.graphModel;
+    // const x = gridSize * Math.round(this.nodeModel.x / gridSize);
+    // const y = gridSize * Math.round(this.nodeModel.y / gridSize);
+    // this.nodeModel.moveTo(x, y);
   };
   render() {
     const {

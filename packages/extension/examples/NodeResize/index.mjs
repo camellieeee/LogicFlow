@@ -11,7 +11,14 @@ window.onload = function () {
     container: document.querySelector('#app'),
     // isSilentMode: true,
     // fixme: grid成为了必传的了
-    grid: false,
+    grid: {
+      size: 50,
+      visible: true,
+      type: 'mesh',
+      config: {
+        color: '#ccc'
+      }
+    },
     keyboard: {
       enabled: true,
     },

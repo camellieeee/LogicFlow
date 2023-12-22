@@ -23,6 +23,9 @@
     "publish-lib": "npm run build && npm publish",
     "test": "jest"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "",
   "files": [
     "cjs",

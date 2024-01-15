@@ -216,9 +216,10 @@ class Control extends Component<IProps> {
       || size.height > maxHeight
     ) {
       // 为了避免放到和缩小位置和鼠标不一致的问题
-      this.dragHandler.cancelDrag();
+      // this.dragHandler.cancelDrag();
       return;
     }
+
     this.updatePosition({ deltaX: size.deltaX, deltaY: size.deltaY });
     // 更新宽高
     this.nodeModel.width = size.width;
